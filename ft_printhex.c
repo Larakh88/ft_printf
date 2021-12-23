@@ -22,22 +22,23 @@ char	*ft_convertx(int nb)
 
 	x = nb;
 	j = 2;
-	while (x / 16 > 16)
+	while (x / 16 >= 1)
 	{
 		x = x / 16;
 		j++;
 	}
-	str = malloc(sizeof(char) * (j + 1));
-	str[j] = 0;
+	str = malloc(sizeof(char) * j);
+	str[j - 1] = 0;
 	while (nb / 16 > 0)
 	{
 		j--;
 		if (nb % 16 >= 0 && nb % 16 <= 9)
-			str[j] = (nb % 16) + '0';
+			str[j - 1] = (nb % 16) + '0';
 		else
-			str[j] = (nb % 16) + 87;
+			str[j - 1] = (nb % 16) + 87;
 		nb = nb / 16;	
-	}	
+	}
+	j--;	
 	str[j - 1] = nb + '0';
 	return (str);
 }

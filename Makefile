@@ -20,7 +20,7 @@ HEADER = ft_printf.h
 
 RM = rm -f
 
-CFILES = ft_printf.c ft_printhex.c ft_strlen.c ft_putchar.c ft_putstr.c
+CFILES = ft_printf.c ft_printhex.c ft_putchar.c ft_putstr.c
 
 OBJS = $(CFILES:.c=.o)
 

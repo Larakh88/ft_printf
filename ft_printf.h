@@ -17,7 +17,6 @@
 # include <stdarg.h>
 
 int	ft_printf(const char *str, ...);
-int	ft_strlen(const char *str);
 int	ft_printhex(int nb, unsigned int i);
 int	ft_putchar(char c, unsigned int i);
 int	ft_putstr(char *str, unsigned int i);
