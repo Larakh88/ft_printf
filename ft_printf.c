@@ -13,32 +13,6 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
-int	ft_putchar(char c, unsigned int i)
-{
-	write(1, &c, 1);
-	i++;
-	return (i);
-}
-
-int	ft_putstr(char *str, unsigned int i)
-{
-	if (str == NULL)
-	{
-		write(1, "(null)", 6);
-		return (i + 6);
-	}
-	else
-	{
-		while (*str != 0)
-		{
-			write (1, str, 1);
-			str++;
-			i++;
-		}
-	}
-	return (i);
-}
-
 int	ft_putnbr(int nb, unsigned int i)
 {
 	if (nb == -2147483648)
@@ -71,6 +45,8 @@ int	ft_type(const char *str, va_list ap, unsigned int i)
 		i = ft_putnbr(va_arg(ap, int), i);
 	else if (*str == '%')
 		i = ft_putchar('%', i);
+	else if (*str == 'x')
+		i = ft_printhex(va_arg(ap, int), i);
 	else if (*str == 's')
 	{	
 		s = va_arg(ap, char *);
@@ -92,6 +68,7 @@ int	ft_printf(const char *str, ...)
 		{
 			str++;
 			i = ft_type(str, ap, i);
+			va_arg(ap, int);
 			str++;
 		}
 		else
@@ -102,11 +79,4 @@ int	ft_printf(const char *str, ...)
 		}
 	}
 	return (i);
-}
-
-int main()
-{
-	printf("%d ", printf("%s%%%d%i%s%d\n","Hi", 42, 42, "Bye", -98));
-    printf("%d ", ft_printf("%s%%%d%i%s%d\n","Hi", 42, 42, "Bye", -98));
-	printf("%X", 64250);
 }
