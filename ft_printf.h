@@ -15,10 +15,13 @@
 
 # include <unistd.h>
 # include <stdarg.h>
+# include <stdlib.h>
 
 int	ft_printf(const char *str, ...);
-int	ft_printhex(int nb, unsigned int i);
+int	ft_printhex(unsigned int nb, unsigned int i);
 int	ft_putchar(char c, unsigned int i);
 int	ft_putstr(char *str, unsigned int i);
+int     ft_putnbr(int nb, unsigned int i);
+int	ft_printhex_x(unsigned int nb, unsigned int i);
 
 #endif

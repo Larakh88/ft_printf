@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printhex.c                                      :+:      :+:    :+:   */
+/*   ft_printhex_x.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lel-khou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_hexlength(unsigned int nb, int j)
+int	ft_hexlength_x(unsigned int nb, int j)
 {
 	while (nb / 16 >= 1)
 	{
@@ -22,13 +22,13 @@ int	ft_hexlength(unsigned int nb, int j)
 	return (j);
 }
 
-char	*ft_convertx(unsigned int nb)
+char	*ft_convertx_x(unsigned int nb)
 {
 	int	j;
 	char	*str;
 
 	j = 2;
-	j = ft_hexlength(nb, j);
+	j = ft_hexlength_x(nb, j);
 	str = malloc(sizeof(char) * j);
 	str[j - 1] = 0;
 	while (nb / 16 > 0)
@@ -37,27 +37,27 @@ char	*ft_convertx(unsigned int nb)
 		if (nb % 16 >= 0 && nb % 16 <= 9)
 			str[j - 1] = (nb % 16) + '0';
 		else
-			str[j - 1] = (nb % 16) + 87;
+			str[j - 1] = (nb % 16) + 55;
 		nb = nb / 16;	
 	}
 	j--;	
 	if (nb <= 9)
 		str[j - 1] = nb + '0';
 	else
-		str[j-1] = nb + 87;
+		str[j-1] = nb + 55;
 	return (str);
 }
 
-int	ft_printhex(unsigned int nb, unsigned int i)
+int	ft_printhex_x(unsigned int nb, unsigned int i)
 {
 	char	*str;
 
 	if (nb >= 10 && nb <= 15)
 	{
-		i = ft_putchar(nb + 87, i);
+		i = ft_putchar(nb + 55, i);
 		return(i);
 	}
-	str = ft_convertx(nb);
+	str = ft_convertx_x(nb);
 	i = ft_putstr(str, i);
 	free(str);
 	return (i);
