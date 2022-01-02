@@ -23,5 +23,6 @@ int	ft_putchar(char c, unsigned int i);
 int	ft_putstr(char *str, unsigned int i);
 int     ft_putnbr(int nb, unsigned int i);
 int	ft_printhex_x(unsigned int nb, unsigned int i);
+int     ft_printptr(unsigned long long nb, unsigned int i);
 
 #endif

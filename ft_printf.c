@@ -11,7 +11,18 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+
+int	ft_putu(unsigned int nb, unsigned int i)
+{
+	if (nb >= 10)
+	{
+		i = ft_putu(nb / 10, i);
+		i = ft_putu(nb % 10, i);
+	}
+	else
+		i = ft_putchar(nb + '0', i);
+	return (i);      
+}
 
 int	ft_type(const char *str, va_list ap, unsigned int i)
 {
@@ -21,12 +32,14 @@ int	ft_type(const char *str, va_list ap, unsigned int i)
 		i = ft_putchar(va_arg(ap, int), i);
 	else if (*str == 'i' || *str == 'd')
 		i = ft_putnbr(va_arg(ap, int), i);
-	else if (*str == '%')
-		i = ft_putchar('%', i);
 	else if (*str == 'x')
 		i = ft_printhex(va_arg(ap, int), i);
 	else if (*str == 'X')
 		i = ft_printhex_x(va_arg(ap, int), i);
+	else if (*str == 'p')
+		i = ft_printptr(va_arg(ap, long long), i);
+	else if (*str == 'u')
+		i = ft_putu(va_arg(ap, int), i);
 	else if (*str == 's')
 	{	
 		s = va_arg(ap, char *);
@@ -47,8 +60,13 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			i = ft_type(str, ap, i);
-			va_arg(ap, int);
+			if (*str == '%')
+				i = ft_putchar('%', i);
+			else
+			{
+				i = ft_type(str, ap, i);
+				va_arg(ap, int);
+			}
 			str++;
 		}
 		else
