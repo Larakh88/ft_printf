@@ -50,7 +50,7 @@ int	ft_type(const char *str, va_list ap, unsigned int i)
 
 int	ft_printf(const char *str, ...)
 {
-	va_list			ap;
+	va_list		ap;
 	unsigned int	i;
 
 	va_start(ap, str);
@@ -67,14 +67,10 @@ int	ft_printf(const char *str, ...)
 				i = ft_type(str, ap, i);
 				va_arg(ap, int);
 			}
-			str++;
 		}
 		else
-		{
-			write(1, str, 1);
-			str++;
-			i++;
-		}
+			i = ft_putchar(*str, i);
+		str++;
 	}
 	return (i);
 }
