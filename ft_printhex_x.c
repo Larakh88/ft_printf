@@ -24,8 +24,8 @@ int	ft_hexlength_x(unsigned int nb, int j)
 
 char	*ft_convertx_x(unsigned int nb)
 {
-	int	j;
-	char	*str;
+	int		j;
+	char		*str;
 
 	j = 2;
 	j = ft_hexlength_x(nb, j);
@@ -38,13 +38,13 @@ char	*ft_convertx_x(unsigned int nb)
 			str[j - 1] = (nb % 16) + '0';
 		else
 			str[j - 1] = (nb % 16) + 55;
-		nb = nb / 16;	
+		nb = nb / 16;
 	}
-	j--;	
+	j--;
 	if (nb <= 9)
 		str[j - 1] = nb + '0';
 	else
-		str[j-1] = nb + 55;
+		str[j - 1] = nb + 55;
 	return (str);
 }
 
@@ -55,7 +55,7 @@ int	ft_printhex_x(unsigned int nb, unsigned int i)
 	if (nb >= 10 && nb <= 15)
 	{
 		i = ft_putchar(nb + 55, i);
-		return(i);
+		return (i);
 	}
 	str = ft_convertx_x(nb);
 	i = ft_putstr(str, i);
