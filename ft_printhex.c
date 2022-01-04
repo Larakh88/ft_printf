@@ -38,13 +38,13 @@ char	*ft_convertx(unsigned int nb)
 			str[j - 1] = (nb % 16) + '0';
 		else
 			str[j - 1] = (nb % 16) + 87;
-		nb = nb / 16;	
+		nb = nb / 16;
 	}
-	j--;	
+	j--;
 	if (nb <= 9)
 		str[j - 1] = nb + '0';
 	else
-		str[j-1] = nb + 87;
+		str[j - 1] = nb + 87;
 	return (str);
 }
 
@@ -55,7 +55,7 @@ int	ft_printhex(unsigned int nb, unsigned int i)
 	if (nb >= 10 && nb <= 15)
 	{
 		i = ft_putchar(nb + 87, i);
-		return(i);
+		return (i);
 	}
 	str = ft_convertx(nb);
 	i = ft_putstr(str, i);

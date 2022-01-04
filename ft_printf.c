@@ -21,7 +21,7 @@ int	ft_putu(unsigned int nb, unsigned int i)
 	}
 	else
 		i = ft_putchar(nb + '0', i);
-	return (i);      
+	return (i);
 }
 
 int	ft_type(const char *str, va_list ap, unsigned int i)
