@@ -24,8 +24,8 @@ int	ft_hexlength_x(unsigned int nb, int j)
 
 char	*ft_convertx_x(unsigned int nb)
 {
-	int		j;
-	char		*str;
+	int	j;
+	char	*str;
 
 	j = 2;
 	j = ft_hexlength_x(nb, j);
