@@ -6,7 +6,7 @@
 /*   By: lel-khou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 12:53:03 by lel-khou          #+#    #+#             */
-/*   Updated: 2021/12/20 14:32:02 by lel-khou         ###   ########.fr       */
+/*   Updated: 2022/01/05 19:14:58 by lel-khou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_hexlength1(unsigned long long nb, int j)
 
 char	*ft_convertx1(unsigned long long nb)
 {
-	int	j;
+	int		j;
 	char	*str;
 
 	j = 2;

@@ -6,7 +6,7 @@
 /*   By: lel-khou <lel-khou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 19:06:10 by lel-khou          #+#    #+#             */
-/*   Updated: 2021/12/20 12:46:54 by lel-khou         ###   ########.fr       */
+/*   Updated: 2022/01/05 19:22:46 by lel-khou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_type(const char *str, va_list ap, unsigned int i)
 
 int	ft_printf(const char *str, ...)
 {
-	va_list		ap;
+	va_list			ap;
 	unsigned int	i;
 
 	va_start(ap, str);
@@ -63,10 +63,7 @@ int	ft_printf(const char *str, ...)
 			if (*str == '%')
 				i = ft_putchar('%', i);
 			else
-			{
 				i = ft_type(str, ap, i);
-				va_arg(ap, int);
-			}
 		}
 		else
 			i = ft_putchar(*str, i);
